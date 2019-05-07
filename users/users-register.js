@@ -11,6 +11,8 @@ router.post("/", (req, res) => {
   } else {
     user.password = bcrypt.hashSync(user.password, 8);
     db.addUser(user).then(user => {
+      req.session.username = user.username;
+      console.log(user);
       res.status(201).json(user);
     });
   }

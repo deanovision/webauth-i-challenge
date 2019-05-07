@@ -1,6 +1,5 @@
 const express = require("express");
 const db = require("./users-model");
-const bcrypt = require("bcryptjs");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -12,3 +11,4 @@ router.get("/", (req, res) => {
       res.status(500).json({ message: "error getting users" });
     });
 });
+module.exports = router;
